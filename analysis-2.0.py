@@ -10,7 +10,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
 import streamlit as st
-from datetime import timedelta
 
 # 全局样式设置
 plt.style.use('ggplot')
@@ -148,7 +147,7 @@ class WeChatAnalyzer:
 st.title("💬 WeChat 聊天记录分析")
 
 # File upload
-uploaded_file = st.file_uploader("请上传微信聊天记录CSV文件", type="csv")
+uploaded_file = st.file_uploader("请上传微信聊天记录CSV文件", type="csv", help="需要首先从[memotrace](https://memotrace.cn/doc/posts/deploy/install.html)获取csv文件")
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     analyzer = WeChatAnalyzer(df)
