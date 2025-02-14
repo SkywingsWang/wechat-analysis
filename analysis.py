@@ -469,8 +469,6 @@ if uploaded_file is not None:
         st.pyplot(plt)
         st.markdown(f"<div class='analysis-text'>{your_name}的高频词：{'、'.join([w[0] for w in top_words_my])}</div>", unsafe_allow_html=True)
 
-    # 使用缓存提升性能
-    @st.cache_data(ttl=3600, hash_funcs={"__main__.WeChatAnalyzer": lambda _: None})
     def get_topic_data(_analyzer):
         return _analyzer.analyze_joint_topics()
 
